@@ -16,3 +16,13 @@ export const deleteContactRequest = async (id) => {
     await axios.delete(`http://localhost:4000/api/contacts/${id}`);
 }
 
+
+
+// USERS
+export const createUserRequest = async (user) =>
+  await axios.post("http://localhost:4000/api/register", user);
+
+  export const loginUserRequest = async (user) =>
+  await axios.post("http://localhost:4000/api/login", user);
+
+

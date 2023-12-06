@@ -52,7 +52,7 @@ export default function EditPage() {
     console.log(contact);
     event.target.closest("dialog").close();
     //window.location.reload();
-    navigate("/");
+    navigate("/main");
     const result = await updateContactRequest(params.id, contact);
     console.log(result);
   };
@@ -63,7 +63,7 @@ export default function EditPage() {
         <div className="modal-box">
           <form method="dialog">
             <Link
-              to={"/"}
+              to={"/main"}
               className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2"
             >
               ✕

@@ -10,6 +10,7 @@ import {
 import Button from "../components/Button";
 import { useEffect, useState } from "react";
 import { getContactsRequest } from "../api/contacts.api.js";
+import Navbar from "../components/Navbar";
 
 export default function ViewContact() {
   const [contacts, setContact] = useState([]);
@@ -22,6 +23,8 @@ export default function ViewContact() {
     loadContacts();
   }, []);
   return (
+    <>
+    <Navbar />
     <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-61">
       {contacts.map((contact) => (
         <div key={contact.id} className="m-10 bg-white rounded-md shadow-md ">
@@ -76,5 +79,6 @@ export default function ViewContact() {
         </div>
       ))}
     </div>
+    </>
   );
 }

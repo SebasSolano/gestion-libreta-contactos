@@ -9,7 +9,7 @@ export default function Navbar() {
     <nav className="bg-gradient-to-r from-purple-500 to-indigo-500 p-4">
       <div className="container mx-auto flex justify-between items-center">
         <div className="flex items-center">
-          <Link to="/">
+          <Link to="/main">
             <FontAwesomeIcon
               icon={faAddressBook}
               className="text-white text-3xl mr-2 hover:text-yellow-300 transition duration-300 ease-in-out"
@@ -21,12 +21,18 @@ export default function Navbar() {
         </div>
         <div className="flex items-center">
           <Link
-            to="/"
+            to="/main"
             className="text-white hover:text-yellow-300 transition duration-300 ease-in-out mr-4"
           >
             <FontAwesomeIcon icon={faBars} className="text-lg" />
           </Link>
           <ContactForm />
+          <Link
+            to="/"
+            className="text-white ml-10 hover:text-yellow-300 transition duration-300 ease-in-out mr-4"
+          >
+            Salir
+          </Link>
         </div>
       </div>
     </nav>
