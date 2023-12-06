@@ -41,12 +41,18 @@ npx tailwindcss init
 # *DIAGRAMAS*
 
 - Diagrama de entidad y relacion:
+
+
 ![image](https://github.com/SebasSolano/gestion-libreta-contactos/assets/99377039/92b28ffa-3628-4c1c-a68b-69b3f45ab8ae)
 
 - Diagrama de Clases:
+
+
 ![image](https://github.com/SebasSolano/gestion-libreta-contactos/assets/99377039/30364e47-0827-4be8-bf22-847535870a7e)
 
 - Diagrama de secuencias:
+
+
 ![image](https://github.com/SebasSolano/gestion-libreta-contactos/assets/99377039/2df36c99-071c-455c-909d-aea4a0dc246c)
 
 
