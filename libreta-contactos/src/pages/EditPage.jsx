@@ -13,20 +13,26 @@ import ViewContact from "./viewContact";
 import { Link, useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { getContactRequest, updateContactRequest } from "../api/contacts.api";
+import { useNavigate } from "react-router-dom";
 
 export default function EditPage() {
+  const navigate = useNavigate();
   const params = useParams();
   const [contactData, setContactData] = useState({});
 
   useEffect(() => {
+    document.getElementById("my_modal_4").showModal();
     const fetchData = async () => {
       try {
-        const result = await getContactRequest(params.id);
-        setContactData(result.data);
+        if (params.id) {
+          const result = await getContactRequest(params.id);
+          setContactData(result.data);
+        }
       } catch (error) {
         console.error("Error fetching contact data:", error);
       }
     };
+
     fetchData();
   }, [params.id]);
 
@@ -45,13 +51,15 @@ export default function EditPage() {
     };
     console.log(contact);
     event.target.closest("dialog").close();
-    window.location.reload();
-    await updateContactRequest(params, contact);
+    //window.location.reload();
+    navigate("/");
+    const result = await updateContactRequest(params.id, contact);
+    console.log(result);
   };
 
   return (
     <>
-      <dialog id="my_modal_4" className="modal" open>
+      <dialog id="my_modal_4" className="modal">
         <div className="modal-box">
           <form method="dialog">
             <Link
@@ -79,7 +87,10 @@ export default function EditPage() {
                     type="text"
                     placeholder="Name"
                     name="name"
-                    value={contactData.name || ""}
+                    defaultValue={contactData.name}
+                    onChange={(e) =>
+                      setContactData({ ...contactData, name: e.target.value })
+                    }
                     className="w-full border-b-2 border-gray-300 focus:outline-none focus:border-indigo-500"
                   />
                 </div>
@@ -92,7 +103,13 @@ export default function EditPage() {
                     type="text"
                     name="lastName"
                     placeholder="Last name"
-                    value={contactData.lastName || ""}
+                    defaultValue={contactData.lastName || ""}
+                    onChange={(e) =>
+                      setContactData({
+                        ...contactData,
+                        lastName: e.target.value,
+                      })
+                    }
                     className="w-full border-b-2 border-gray-300 focus:outline-none focus:border-indigo-500"
                   />
                 </div>
@@ -105,7 +122,10 @@ export default function EditPage() {
                     type="text"
                     name="alias"
                     placeholder="Alias"
-                    value={contactData.alias || ""}
+                    defaultValue={contactData.alias || ""}
+                    onChange={(e) =>
+                      setContactData({ ...contactData, alias: e.target.value })
+                    }
                     className="w-full border-b-2 border-gray-300 focus:outline-none focus:border-indigo-500"
                   />
                 </div>
@@ -118,7 +138,10 @@ export default function EditPage() {
                     type="email"
                     name="email"
                     placeholder="Email"
-                    value={contactData.email || ""}
+                    defaultValue={contactData.email || ""}
+                    onChange={(e) =>
+                      setContactData({ ...contactData, email: e.target.value })
+                    }
                     className="w-full border-b-2 border-gray-300 focus:outline-none focus:border-indigo-500"
                   />
                 </div>
@@ -131,7 +154,10 @@ export default function EditPage() {
                     type="text"
                     name="phone"
                     placeholder="Phone"
-                    value={contactData.phone || ""}
+                    defaultValue={contactData.phone || ""}
+                    onChange={(e) =>
+                      setContactData({ ...contactData, phone: e.target.value })
+                    }
                     className="w-full border-b-2  border-gray-300 focus:outline-none focus:border-indigo-500"
                   />
                 </div>
@@ -145,6 +171,12 @@ export default function EditPage() {
                     name="cellPhone"
                     placeholder="Cell Phone"
                     value={contactData.cellPhone || ""}
+                    onChange={(e) =>
+                      setContactData({
+                        ...contactData,
+                        cellPhone: e.target.value,
+                      })
+                    }
                     className="w-full border-b-2 border-gray-300 focus:outline-none focus:border-indigo-500"
                   />
                 </div>
@@ -157,7 +189,13 @@ export default function EditPage() {
                     type="text"
                     name="address"
                     placeholder="Address"
-                    value={contactData.address || ""}
+                    defaultValue={contactData.address || ""}
+                    onChange={(e) =>
+                      setContactData({
+                        ...contactData,
+                        address: e.target.value,
+                      })
+                    }
                     className="w-full border-b-2 border-gray-300 focus:outline-none focus:border-indigo-500"
                   />
                 </div>
@@ -170,7 +208,13 @@ export default function EditPage() {
                     type="text"
                     name="webSite"
                     placeholder="Web Site"
-                    value={contactData.webSite || ""}
+                    defaultValue={contactData.webSite || ""}
+                    onChange={(e) =>
+                      setContactData({
+                        ...contactData,
+                        webSite: e.target.value,
+                      })
+                    }
                     className="w-full border-b-2 border-gray-300 focus:outline-none focus:border-indigo-500"
                   />
                 </div>
