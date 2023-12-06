@@ -55,6 +55,11 @@ Abre una terminal en la carpeta del proyecto,
 
 ![image](https://github.com/SebasSolano/gestion-libreta-contactos/assets/99377039/2df36c99-071c-455c-909d-aea4a0dc246c)
 
+- Diagrama de pruebas unitarias:
+
+![image](https://github.com/SebasSolano/gestion-libreta-contactos/assets/99377039/6f20be8d-98cd-4b6d-9852-0337f0554bf2)
+
+
 
 
 
