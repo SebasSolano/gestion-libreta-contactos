@@ -1,11 +1,12 @@
 import { Router } from "express";
+import { getUsers, createUser, getUser, getUserContacts } from "../controllers/users.controller.js";
 
 
 const router = Router();
 
-router.get("/api/users");
-router.post("/api/users");
-router.get("/api/users/:id");
-router.get("/api/users/:id/contacts");
+router.get("/api/users", getUsers);
+router.post("/api/users", createUser);
+router.get("/api/users/:id", getUser);
+router.get("/api/users/:id/contacts", getUserContacts);
 
 export default router;

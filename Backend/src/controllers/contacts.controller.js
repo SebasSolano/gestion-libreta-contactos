@@ -24,7 +24,7 @@ export const getContact = async (req, res, next) => {
   }
 };
 
-export const createContac = async (req, res, next) => {
+export const createContact = async (req, res, next) => {
   try {
     const { name, lastName, alias, email, phone, cellPhone, address, webSite } =
       req.body;
