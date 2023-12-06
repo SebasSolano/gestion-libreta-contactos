@@ -68,9 +68,9 @@ export default function ViewContact() {
             </div>
             {/* BOTON EDITAR */}
             <div className="flex justify-center">
-              <Button action="edit" />
+              <Button action="edit" id={contact.id}/>
               {/* BOTON ELIMINAR */}
-              <Button action="delete" />
+              <Button action="delete" id={contact.id} />
             </div>
           </div>
         </div>

@@ -1,13 +1,12 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEdit, faTrashAlt } from "@fortawesome/free-solid-svg-icons";
 import PropTypes from "prop-types";
+import { deleteContactRequest} from "../api/contacts.api";
 
 const Button = ({ action, id }) => {
     const handleDelete = async () => {
       try {
-        const response = await fetch(`http://localhost:4000/api/contacts/${id}`, {
-          method: "DELETE",
-        });
+        const response = await deleteContactRequest(id)
         if (response.ok) {
           console.log("Se elimino correctamente")
         } else {
@@ -17,12 +16,14 @@ const Button = ({ action, id }) => {
         console.log("Error: " + error)
       }
     };
+
   
     const handleClick = () => {
       if (action === "edit") {
         // Lógica para editar
       } else if (action === "delete") {
         handleDelete();
+        window.location.reload();
       }
     };
   
