@@ -1,5 +1,7 @@
 import app from "./app.js";
 import { sequelize } from "./database/database.js";
+//import "./models/Users.js"
+//import "./models/Contacts.js"
 
 async function main() {
   try {
