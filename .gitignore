@@ -141,4 +141,4 @@ dist
 *.sln
 *.sw?
 
-.config.js
+.server/src/config.js
