@@ -1,48 +1,50 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEdit, faTrashAlt } from "@fortawesome/free-solid-svg-icons";
 import PropTypes from "prop-types";
-import { deleteContactRequest} from "../api/contacts.api";
+import { deleteContactRequest } from "../api/contacts.api";
+import { useNavigate } from "react-router-dom";
 
 const Button = ({ action, id }) => {
-    const handleDelete = async () => {
-      try {
-        const response = await deleteContactRequest(id)
-        if (response.ok) {
-          console.log("Se elimino correctamente")
-        } else {
-          console.log("No se elimino correctamente")
-        }
-      } catch (error) {
-        console.log("Error: " + error)
-      }
-    };
+  const navigate = useNavigate();
 
-  
-    const handleClick = () => {
-      if (action === "edit") {
-        // Lógica para editar
-      } else if (action === "delete") {
-        handleDelete();
-        window.location.reload();
+  const handleDelete = async () => {
+    try {
+      const response = await deleteContactRequest(id);
+      if (response.ok) {
+        console.log("Se elimino correctamente");
+      } else {
+        console.log("No se elimino correctamente");
       }
-    };
-  
-    return (
-      <button
-        className={action === "edit" ? "text-indigo-500" : "text-red-500"}
-        onClick={handleClick}
-      >
-        <FontAwesomeIcon
-          icon={action === "edit" ? faEdit : faTrashAlt}
-          className="text-lg mx-5"
-        />
-      </button>
-    );
+    } catch (error) {
+      console.log("Error: " + error);
+    }
   };
-  
-  Button.propTypes = {
-    action: PropTypes.string.isRequired,
-    id: PropTypes.number.isRequired,
+
+  const handleClick = () => {
+    if (action === "edit") {
+      navigate(`/edit/${id}`);
+    } else if (action === "delete") {
+      handleDelete();
+      window.location.reload();
+    }
   };
-  
-  export default Button;
+
+  return (
+    <button
+      className={action === "edit" ? "text-indigo-500" : "text-red-500"}
+      onClick={handleClick}
+    >
+      <FontAwesomeIcon
+        icon={action === "edit" ? faEdit : faTrashAlt}
+        className="text-lg mx-5"
+      />
+    </button>
+  );
+};
+
+Button.propTypes = {
+  action: PropTypes.string.isRequired,
+  id: PropTypes.number.isRequired,
+};
+
+export default Button;
