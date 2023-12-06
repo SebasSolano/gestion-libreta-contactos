@@ -1,5 +1,5 @@
 # gestion-libreta-contactos
-Esta es una aplicación de gestión de la libreta de contactos, al entrar a la app, te encontraras con un login, debes registrarte y despues logearse. *Se utilizo la base de datos PostGres, esta al ejecutar el srvidor se crea automaticamente si no es el caso puede hacer el siguiente tutorial*
+Esta es una aplicación de gestión de la libreta de contactos, al entrar a la app, te encontraras con un login, debes registrarte y despues logearse. *Se utilizo la base de datos PostGres, esta al ejecutar el servidor se crea automaticamente si no es el caso puede hacer el siguiente tutorial, tambien el cliente se hizo en react con vitejs*
 
 # Se ubica en la carpeta `/server` y en el archivo @index.js se encontrara con lo siguiente:
 ![image](https://github.com/SebasSolano/gestion-libreta-contactos/assets/99377039/39e441e0-7aa8-4e70-ad43-8d01cb60fb20)
