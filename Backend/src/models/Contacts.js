@@ -1,22 +1,36 @@
 import { DataTypes } from "sequelize";
 import { sequelize } from "../database/database.js";
-import { Contacts } from "./Contacts.js";
 
-export const Users = sequelize(
-  "users",
+export const Contacts = sequelize(
+  "contacts",
   {
     id: {
       type: DataTypes.INTEGER,
       primaryKey: true,
       autoIncrement: true,
     },
-    username: {
+    name: {
+      type: DataTypes.STRING,
+    },
+    lastName: {
+      type: DataTypes.STRING,
+    },
+    alias: {
       type: DataTypes.STRING,
     },
     email: {
       type: DataTypes.STRING,
     },
-    password: {
+    phone: {
+      type: DataTypes.STRING,
+    },
+    cellPhone: {
+      type: DataTypes.STRING,
+    },
+    address: {
+      type: DataTypes.STRING,
+    },
+    webSite: {
       type: DataTypes.STRING,
     },
   },
@@ -24,13 +38,3 @@ export const Users = sequelize(
     timestamp: true,
   }
 );
-
-Users.hasMany(Contacts, {
-  foreignKey: "userId",
-  targetId: "id",
-});
-
-Contacts.belongsTo(Users, {
-  foreignKey: "userId",
-  targetId: "id",
-})
