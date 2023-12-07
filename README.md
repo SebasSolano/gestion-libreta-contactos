@@ -14,7 +14,21 @@ Para comenzar, asegúrate de tener Node.js instalado. Luego, sigue estos pasos:
 - Clona este repositorio.
 Abre una terminal en la carpeta del proyecto,
 
-- *Ubicate en la carpeta del servidor `/server`*
+- *node_modeles se debe instalar en la carpeta principal del proyecto, es decir,*
+
+gestion-libreta-contactos
+├── node_modules/
+│
+├── libreta-contactos/
+│
+└── server/
+│
+│   README.md
+│   .gitignore
+│   package.json
+│   package-lock.json
+
+    
 
 - Crea un package.json
 `npm init -y`
