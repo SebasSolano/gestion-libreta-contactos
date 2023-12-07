@@ -16,7 +16,6 @@ Abre una terminal en la carpeta del proyecto,
 
 - *node_modeles se debe instalar en la carpeta principal del proyecto, es decir,*
 
-gestion-libreta-contactos
 |
 |-- node_modules/
 |   
