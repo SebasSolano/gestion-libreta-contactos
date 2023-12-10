@@ -93,7 +93,7 @@ export const getUserContacts = async (req, res) => {
   try {
     const { id } = req.params;
 
-    const contacts = await Contacts.findAll({
+    const contacts = await Contacts.findOne({
       where: {
         userId: id,
       },
